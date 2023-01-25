@@ -16,6 +16,7 @@ const todoSchema = new mongoose.Schema({
       required: true,
       onDelete: 'CASCADE',
     },
+    date: { type: Date, default: Date.now },
   });
   
 const Todo = mongoose.model("Todo", todoSchema);

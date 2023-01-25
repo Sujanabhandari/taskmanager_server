@@ -8,6 +8,7 @@ import { Request, Response, NextFunction } from 'express';
 import * as cors from 'cors';
 import ErrorResponse from './src/utils/ErrorResponse';
 import todoListRouter from './src/routes/todolist';
+import todoRouter from './src/routes/todo';
 
 const app = express();
 app.use(express.json());
@@ -18,6 +19,7 @@ app.use(cors.default({
   }))
 
 app.use('/api', todoListRouter);
+app.use('/api', todoRouter);
 const port = process.env.port || 3333;
 
 app.use(function(err: ErrorResponse, req: Request, res: Response, next: NextFunction) {
