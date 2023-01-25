@@ -2,12 +2,11 @@
  * This is not a production server yet!
  * This is only a minimal backend to get started.
  */
-
+import './src/database/client'
 import express from 'express';
 import { Request, Response, NextFunction } from 'express';
 import * as cors from 'cors';
 import ErrorResponse from './src/utils/ErrorResponse';
-
 const app = express();
 app.use(express.json());
 
