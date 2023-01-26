@@ -1,13 +1,13 @@
-import { Request, Response, NextFunction } from 'express';
+import { type Request, type Response, type NextFunction } from 'express'
 /**
  * Wrapper function
- * 
- * @param {function} fn 
+ *
+ * @param {function} fn
  * @returns {function}
  */
-export default function asyncHandler(fn: (req: Request, res: Response, next: NextFunction) => Promise<void>): (req: Request, res: Response, next: NextFunction) => Promise<void> {
-  return function (req: Request, res: Response, next: NextFunction): Promise<void> {
+export default function asyncHandler (fn: (req: Request, res: Response, next: NextFunction) => Promise<void>): (req: Request, res: Response, next: NextFunction) => Promise<void> {
+  return async function (req: Request, res: Response, next: NextFunction): Promise<void> {
     // Returns resolved promise
-    return Promise.resolve(fn(req, res, next)).catch(next);
-  };
+    await Promise.resolve(fn(req, res, next)).catch(next)
+  }
 }
