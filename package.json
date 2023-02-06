@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.ts",
-    "watch": "nodemon app.ts",
+    "start": "node index.ts",
+    "watch": "nodemon index.ts",
     "lint": "eslint .",
-    "debug": "nodemon --inspect app.ts",
+    "debug": "nodemon --inspect index.ts",
     "devwin": "set DEBUG=expressjs-middlewares:* & npm run watch",
     "devmac": "DEBUG=expressjs-middlewares:* npm run watch"
   },
