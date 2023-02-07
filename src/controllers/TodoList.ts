@@ -26,7 +26,7 @@ const getSingleTodoList = asyncHandler(async (req: Request, res: Response, next:
 const updateTodoList = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
   const { id } = req.params
   const { name } = req.body
-  const todolist = await TodoList.findByIdAndUpdate(id, { name }, { new: true })
+  const todolist = await TodoList.findByIdAndUpdate({ _id: id }, { name }, { new: true })
   if (todolist == null) {
     throw new ErrorResponse('Todolist not found', 404)
   }
@@ -39,6 +39,7 @@ const deleteTodoList = asyncHandler(async (req: Request, res: Response, next: Ne
   if (todolist == null) {
     throw new ErrorResponse('Todolist not found', 404)
   }
+  await TodoList.deleteOne({ _id: id })
   res.status(204).json()
 })
 
