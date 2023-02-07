@@ -2,8 +2,7 @@
   "name": "task_manager_server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "type": "module",
+  "main": "index.ts",
   "scripts": {
     "start": "node index.ts",
     "watch": "nodemon index.ts",
